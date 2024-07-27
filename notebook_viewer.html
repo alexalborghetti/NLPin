@@ -31,41 +31,50 @@
             background-color: #007bff;
             color: #fff;
         }
+        @media (max-width: 768px) {
+            .iframe-container {
+                padding-bottom: 100%; /* Aumentare l'altezza dell'iframe su dispositivi mobili */
+            }
+        }
+        @media (max-width: 576px) {
+            .iframe-container {
+                padding-bottom: 125%; /* Ancora più altezza per schermi molto piccoli */
+            }
+        }
     </style>
 </head>
 <body>
 
-        <div class="card">
-            <div class="card-body">
-                <a href="./index.html" class="btn btn-primary">Back to home</a>
-            </div>
-        </div>
-
-        <div class="iframe-container mt-4">
-            <iframe src="" id="notebookIframe"></iframe>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <a href="./index.html" class="btn btn-primary">Back to home</a>
     </div>
+</div>
 
-    <footer class="text-center mt-4">
-        <p>&copy; 2024 Alex Alborghetti</p>
-    </footer>
+<div class="iframe-container mt-4">
+    <iframe src="" id="notebookIframe"></iframe>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<footer class="text-center mt-4">
+    <p>&copy; 2024 Alex Alborghetti</p>
+</footer>
 
-    <script>
-        // Function to set the iframe src based on the URL parameter
-        function setIframeSrc() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const notebook = urlParams.get('notebook');
-            if (notebook) {
-                document.getElementById('notebookIframe').src = notebook;
-            }
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to set the iframe src based on the URL parameter
+    function setIframeSrc() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const notebook = urlParams.get('notebook');
+        if (notebook) {
+            document.getElementById('notebookIframe').src = notebook;
         }
+    }
 
-        // Call the function on page load
-        window.onload = setIframeSrc;
-    </script>
+    // Call the function on page load
+    window.onload = setIframeSrc;
+</script>
 </body>
 </html>
